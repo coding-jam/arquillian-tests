@@ -49,7 +49,7 @@ In order to enable Arquillian in Web module, copy from ejb project to web projec
 
 ### How to auto-enable integration tests
 
-To trigger integration tests (\*IT.class, ITCase.class, IT\*.class) add ```failsafe``` plugin:
+To trigger integration tests (\*IT.class, \*ITCase.class, IT\*.class) add ```failsafe``` plugin:
 
 ```
 <plugin>
