@@ -92,6 +92,18 @@
            </exclusions>
        </dependency>
 
+      <dependency>
+         <groupId>junit</groupId>
+         <artifactId>junit</artifactId>
+      </dependency>
+
+      <dependency>
+         <groupId>it.codingjam</groupId>
+         <artifactId>arquillian-tests-test-utils</artifactId>
+         <version>${project.version}</version>
+         <scope>test</scope>
+      </dependency>
+
    </dependencies>
 
    <build>

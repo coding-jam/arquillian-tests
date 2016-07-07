@@ -40,7 +40,6 @@ public class Task implements Serializable {
 
     @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinColumn(name = "user_name")
-    @XmlTransient
     private User user;
 
     public long getId() {

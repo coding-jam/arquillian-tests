@@ -39,4 +39,37 @@ In order to clean db after a test, ```UserTransaction``` JTA interface is requir
 </dependency>
 ```
 
+### How to test web project
+
+In order to enable Arquillian in Web module, copy from ejb project to web project:
+
+ * Arquillian and JUnit dependencies
+ * ```arquillian.xml```
+ * Arquillian Maven profiles
+
+### How to auto-enable integration tests
+
+To trigger integration tests (\*IT.class, ITCase.class, IT\*.class) add ```failsafe``` plugin:
+
+```
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-failsafe-plugin</artifactId>
+    <version>2.18.1</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>integration-test</goal>
+                <goal>verify</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+```
+
+to profiles:
+
+ * arq-wildfly-managed
+ * arq-wildfly-remote
+
 

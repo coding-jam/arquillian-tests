@@ -4,12 +4,18 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  */
 @Entity
 @Table(name = "users")
 @NamedQuery(name = User.COUNT_USERS, query = "select count(u) from User u")
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class User {
 
     public static final String COUNT_USERS = "Users.count";
@@ -20,6 +26,7 @@ public class User {
     private String userName;
 
     @NotNull
+    @XmlTransient
     private String password;
 
 

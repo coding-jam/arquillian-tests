@@ -2,7 +2,8 @@ package it.codingjam.arquilliantests.logic.services;
 
 import it.codingjam.arquilliantests.logic.models.Task;
 import it.codingjam.arquilliantests.logic.models.User;
-import it.codingjam.arquilliantests.logic.utils.TestArchive;
+import it.codingjam.arquilliantests.utils.TestDbUtils;
+import it.codingjam.arquilliantests.utils.TestArchive;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
@@ -10,13 +11,10 @@ import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.transaction.UserTransaction;
 import java.util.List;
 import java.util.Optional;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static org.junit.Assert.*;
@@ -40,21 +38,12 @@ public class TaskServiceIT {
     @Inject
     private EntityManager entityManager;
 
-    @Resource
-    private UserTransaction userTransaction;
+    @Inject
+    private TestDbUtils testDbUtils;
 
     @After
     public void cleanDb() throws Exception {
-        try {
-            userTransaction.begin();
-            entityManager.createQuery("DELETE FROM Task").executeUpdate();
-            entityManager.createQuery("DELETE FROM User").executeUpdate();
-            userTransaction.commit();
-        } catch (Exception e) {
-            LOGGER.log(Level.SEVERE, "Error cleaning db", e);
-            userTransaction.rollback();
-        }
-
+        testDbUtils.cleanDb();
     }
 
     @Test
