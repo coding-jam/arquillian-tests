@@ -1,10 +1,9 @@
-package it.codingjam.arquilliantests.models;
+package it.codingjam.arquilliantests.logic.models;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 /**
  */

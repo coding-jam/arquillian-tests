@@ -1,4 +1,4 @@
-package it.codingjam.arquilliantests.models;
+package it.codingjam.arquilliantests.logic.models;
 
 /**
  */

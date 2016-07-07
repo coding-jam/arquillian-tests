@@ -1,6 +1,6 @@
-package it.codingjam.arquilliantests.services;
+package it.codingjam.arquilliantests.logic.services;
 
-import it.codingjam.arquilliantests.models.Task;
+import it.codingjam.arquilliantests.logic.models.Task;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;

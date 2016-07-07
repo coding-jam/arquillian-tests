@@ -1,4 +1,4 @@
-package it.codingjam.arquilliantests.utils;
+package it.codingjam.arquilliantests.logic.utils;
 
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
@@ -17,7 +17,7 @@ public class TestArchive {
 
     public static JavaArchive asEjbJar() {
         return ShrinkWrap.create(JavaArchive.class, "arquillian-tests-ejb.jar")
-                .addPackages(true, "it.codingjam.arquilliantests")
+                .addPackages(true, "it.codingjam.arquilliantests.logic")
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml")
                 .addAsResource("META-INF/persistence.xml")
                 .addAsResource("META-INF/orm.xml")
