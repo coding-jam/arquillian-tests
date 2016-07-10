@@ -16,7 +16,7 @@ mvn archetype:generate -DarchetypeGroupId=org.wildfly.archetype -DarchetypeArtif
 
 In order to use Maven dependecies in Arquillian deployment add following dependency to ```pom.xml```
 
-```
+```xml
 <dependency>
     <groupId>org.jboss.shrinkwrap.resolver</groupId>
     <artifactId>shrinkwrap-resolver-impl-maven</artifactId>
@@ -30,7 +30,7 @@ Version is inherited from WildFly BOM
 
 In order to clean db after a test, ```UserTransaction``` JTA interface is required (because datasource is JTA even in tests!!)
 
-```
+```xml
 <dependency>
     <groupId>javax.transaction</groupId>
     <artifactId>jta</artifactId>
@@ -51,7 +51,7 @@ In order to enable Arquillian in Web module, copy from ejb project to web projec
 
 To trigger integration tests (\*IT.class, \*ITCase.class, IT\*.class) add ```failsafe``` plugin:
 
-```
+```xml
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-failsafe-plugin</artifactId>
