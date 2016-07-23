@@ -22,7 +22,7 @@ public class TestArchive {
         return ShrinkWrap.create(JavaArchive.class, "arquillian-tests-ejb.jar")
                 .addPackages(true, "it.codingjam.arquilliantests.logic", "it.codingjam.arquilliantests.utils")
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml")
-                .addAsResource("META-INF/persistence.xml")
+                .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
                 .addAsResource("META-INF/orm.xml")
                 .merge(getMavenDependencies());
     }
